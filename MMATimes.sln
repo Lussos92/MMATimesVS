@@ -5,9 +5,19 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMATimes", "MMATimes\MMATimes.csproj", "{1DA7245C-8140-4A8A-A58B-D1E5D6463C45}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsService", "NewsService\NewsService.csproj", "{B172AE06-4362-458C-8C5A-462F83530B66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsPublisherService", "NewsService\NewsPublisherService.csproj", "{B172AE06-4362-458C-8C5A-462F83530B66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsRecieveService", "NewsRecieveService\NewsRecieveService.csproj", "{97C42306-026B-4320-AC67-EA6234D79253}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsConsumeService", "NewsConsumeService\NewsConsumeService.csproj", "{2A217C88-D2E9-45AF-AF5C-9DACF34785AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminSite", "AdminSite\AdminSite.csproj", "{4BA58261-33F9-46F5-BC04-E8C9A07D0A23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{57B2000F-F57A-4462-944A-3492EC938471}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMATimesMain.dbup", "MMATimesMain.dbup\MMATimesMain.dbup.csproj", "{02490AB9-6F32-4D7A-8B74-9B2170680DAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messaging", "Messaging", "{047E9AA4-4D90-4F87-BD40-B2E9F69333C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{681D7433-12B5-4BCC-9F1C-EE776654D9DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,13 +33,26 @@ Global
 		{B172AE06-4362-458C-8C5A-462F83530B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B172AE06-4362-458C-8C5A-462F83530B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B172AE06-4362-458C-8C5A-462F83530B66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97C42306-026B-4320-AC67-EA6234D79253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97C42306-026B-4320-AC67-EA6234D79253}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97C42306-026B-4320-AC67-EA6234D79253}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97C42306-026B-4320-AC67-EA6234D79253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A217C88-D2E9-45AF-AF5C-9DACF34785AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A217C88-D2E9-45AF-AF5C-9DACF34785AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A217C88-D2E9-45AF-AF5C-9DACF34785AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A217C88-D2E9-45AF-AF5C-9DACF34785AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA58261-33F9-46F5-BC04-E8C9A07D0A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA58261-33F9-46F5-BC04-E8C9A07D0A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA58261-33F9-46F5-BC04-E8C9A07D0A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA58261-33F9-46F5-BC04-E8C9A07D0A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02490AB9-6F32-4D7A-8B74-9B2170680DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02490AB9-6F32-4D7A-8B74-9B2170680DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02490AB9-6F32-4D7A-8B74-9B2170680DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02490AB9-6F32-4D7A-8B74-9B2170680DAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B172AE06-4362-458C-8C5A-462F83530B66} = {047E9AA4-4D90-4F87-BD40-B2E9F69333C6}
+		{2A217C88-D2E9-45AF-AF5C-9DACF34785AE} = {047E9AA4-4D90-4F87-BD40-B2E9F69333C6}
+		{02490AB9-6F32-4D7A-8B74-9B2170680DAF} = {57B2000F-F57A-4462-944A-3492EC938471}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF9190F2-856B-49E4-B993-DCAB012BC514}

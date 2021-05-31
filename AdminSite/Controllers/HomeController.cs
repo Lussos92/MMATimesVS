@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AdminSite.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MMATimes.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Http;
 
-namespace MMATimes.Controllers
+namespace AdminSite.Controllers
 {
     public class HomeController : Controller
     {
@@ -24,29 +23,21 @@ namespace MMATimes.Controllers
             return View();
         }
 
-        public IActionResult PostMessage()
+        public IActionResult PostMessage(NewsStoryModel model)
         {
-            //var newsService = new NewsService();
+            var newsPost = new NewsService.Models.NewsPost
+            {
+                Title = model.Title,
+                MainBody = model.MainBody,
+                Blurb = model.Blurb,
+                DatePosted = DateTime.UtcNow
+            };
 
+            NewsService.NewsService.PostNewsArticle(newsPost);
 
             return View();
         }
 
-        public IActionResult PostNewStory(NewsStory newsStory)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest("No");
-
-            try
-            {
-                using(NewsStory ctx = new Models.NewsStory())
-                {
-
-                }
-            }
-
-            return Ok()
-        }
 
         public IActionResult Privacy()
         {

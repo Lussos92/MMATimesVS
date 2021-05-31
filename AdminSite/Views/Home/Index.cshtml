@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model NewsStoryModel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<form action="/Home/PostMessage" method="post">
+    Title
+    @Html.TextBoxFor(Model => Model.Title)
+    Blurb
+    @Html.TextBoxFor(Model => Model.Blurb)
+    Body
+    @Html.TextBoxFor(Model => Model.MainBody)
+    <input type="submit" value="Submit" />
+</form>
