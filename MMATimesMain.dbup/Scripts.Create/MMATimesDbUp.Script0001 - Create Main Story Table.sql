@@ -1,20 +1,12 @@
-﻿CREATE TABLE dbo.Author
+﻿CREATE TABLE [dbo].[NewsStory](
+	[NewsStoryId] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](100) NULL,
+	[Blurb] [nvarchar](100) NULL,
+	[MainBody] [nvarchar](100) NULL,
+	[AuthorName] [int] NULL,
+PRIMARY KEY CLUSTERED 
 (
-	AuthorId int NOT NULL,
-	FirstName nvarchar,
-	Surname nvarchar,
-	Password nvarchar,
-	PRIMARY KEY (AuthorId)
-	
-)
-
-CREATE TABLE dbo.NewsStory
-(
-	NewsStoryId int,
-	Title nvarchar,
-	Blurb nvarchar,
-	MainBody nvarchar,
-	AuthorId INT
-	PRIMARY KEY (NewsStoryId)
-	FOREIGN KEY (AuthorId) REFERENCES Author(AuthorId)
-)
+	[NewsStoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO

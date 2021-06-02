@@ -35,7 +35,7 @@ namespace AdminSite.Controllers
 
             NewsService.NewsService.PostNewsArticle(newsPost);
 
-            return View();
+            return View("Index");
         }
 
 

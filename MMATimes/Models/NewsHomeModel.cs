@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-
-#nullable disable
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MMATimes.Models
 {
-    public partial class NewsStory
+    public class NewsHomeModel
     {
-        public int NewsStoryId { get; set; }
+        public List<NewsStoryModel> NewsStories = new List<NewsStoryModel>();
+    }
+
+    public class NewsStoryModel
+    {
         public string Title { get; set; }
         public string Blurb { get; set; }
         public string MainBody { get; set; }
-        public int? AuthorId { get; set; }
-
-        public virtual Author Author { get; set; }
     }
 }

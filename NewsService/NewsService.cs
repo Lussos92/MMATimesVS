@@ -12,6 +12,7 @@ namespace NewsService
     {
         public static void PostNewsArticle(NewsPost newsPost)
         {
+            
             var factory = new ConnectionFactory { Uri = new Uri("amqp://guest:guest@localhost:5672") };
             using (var connection = factory.CreateConnection())
             {
@@ -24,7 +25,6 @@ namespace NewsService
                         arguments: null);
                     var message = new { Name = "Producer", Message = "Hello!" };
                     var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(newsPost));
-
                     channel.BasicPublish("", "create-story-queue", null, body);
                 }
             }

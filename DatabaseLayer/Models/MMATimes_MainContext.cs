@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace MMATimes.Models
+namespace DatabaseLayer.Models
 {
     public partial class MMATimes_MainContext : DbContext
     {
@@ -17,7 +17,6 @@ namespace MMATimes.Models
         {
         }
 
-        public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<NewsStory> NewsStories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,35 +32,15 @@ namespace MMATimes.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
 
-            modelBuilder.Entity<Author>(entity =>
-            {
-                entity.ToTable("Author");
-
-                entity.Property(e => e.AuthorId).ValueGeneratedNever();
-
-                entity.Property(e => e.FirstName).HasMaxLength(1);
-
-                entity.Property(e => e.Password).HasMaxLength(1);
-
-                entity.Property(e => e.Surname).HasMaxLength(1);
-            });
-
             modelBuilder.Entity<NewsStory>(entity =>
             {
                 entity.ToTable("NewsStory");
 
-                entity.Property(e => e.NewsStoryId).ValueGeneratedNever();
+                entity.Property(e => e.Blurb).HasMaxLength(100);
 
-                entity.Property(e => e.Blurb).HasMaxLength(1);
+                entity.Property(e => e.MainBody).HasMaxLength(100);
 
-                entity.Property(e => e.MainBody).HasMaxLength(1);
-
-                entity.Property(e => e.Title).HasMaxLength(1);
-
-                entity.HasOne(d => d.Author)
-                    .WithMany(p => p.NewsStories)
-                    .HasForeignKey(d => d.AuthorId)
-                    .HasConstraintName("FK__NewsStory__Autho__267ABA7A");
+                entity.Property(e => e.Title).HasMaxLength(100);
             });
 
             OnModelCreatingPartial(modelBuilder);

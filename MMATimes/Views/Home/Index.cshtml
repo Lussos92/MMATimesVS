@@ -6,3 +6,22 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+@model NewsHomeModel
+<table style="width:100%">
+    <tr>
+        <th>Title</th>
+        <th>Blurb</th>
+        <th>Main Body</th>
+    </tr>
+
+    @foreach (var newsStory in Model.NewsStories)
+    {
+        <tr>
+            <td>@Html.Label(newsStory.Title)</td>
+            <td>@Html.Label(newsStory.Blurb)</td>
+            <td>@Html.Label(newsStory.MainBody)</td>
+
+        </tr>
+    }
+    
+</table>

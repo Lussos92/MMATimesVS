@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DatabaseLayer.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MMATimes.Models;
+using NewsService.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,7 +24,19 @@ namespace MMATimes.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            NewsHomeModel model = new NewsHomeModel();
+            MMATimes_MainContext context = new MMATimes_MainContext();
+            foreach(var newsContext in context.NewsStories)
+            {
+                NewsStoryModel newsStory = new NewsStoryModel
+                {
+                    Blurb = newsContext.Blurb,
+                    MainBody = newsContext.MainBody,
+                    Title = newsContext.Title
+                };
+                model.NewsStories.Add(newsStory);
+            }
+            return View(model);
         }
 
         public IActionResult PostMessage()
@@ -30,22 +45,6 @@ namespace MMATimes.Controllers
 
 
             return View();
-        }
-
-        public IActionResult PostNewStory(NewsStory newsStory)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest("No");
-
-            try
-            {
-                using(NewsStory ctx = new Models.NewsStory())
-                {
-
-                }
-            }
-
-            return Ok()
         }
 
         public IActionResult Privacy()

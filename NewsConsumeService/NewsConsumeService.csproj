@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj" />
+    <ProjectReference Include="..\MMATimes\MMATimes.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
 </Project>
